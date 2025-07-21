@@ -1,3 +1,25 @@
+# Fork of GraphXAI 
+
+```sh
+# updated requirements.txt
+# installing dependencies (python 3.13.5)
+uv init
+uv venv 
+source .venv/bin/activate
+uv pip install -e .
+uv pip install torch # torch-cluster depends on torch
+uv pip install -r requirements.txt --no-build-isolation
+```
+
+## Difference between Table 5 / GitHub data
+> The uploaded GEA data is different from the published table. (The GEF data is the same). The highlighted colors show the difference; black means this data was not found on GitHub.
+> ![Table 5](formal/realworld/published_vs_github.png)
+
+## Unable to reproduce
+> 
+
+---
+
 ![GraphXAI flowchart](https://github.com/mims-harvard/GraphXAI/blob/main/img/graphxai_flowchart_new.png)
 
 [Publication in Scientific Data](https://www.nature.com/articles/s41597-023-01974-x)
