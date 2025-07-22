@@ -41,7 +41,7 @@ def exp_exists_graph(idx, path = '', get_exp = False):
     if get_exp:
         if os.path.exists(full_path):
             # Get the explanation:
-            t = torch.load(open(full_path, 'rb'))
+            t = torch.load(open(full_path, 'rb'), weights_only=False)
             return t
         else:
             return None

@@ -196,8 +196,8 @@ class SubgraphX(_BaseExplainer):
 
         # Set explanation
         exp = Explanation(
-            node_imp = 1*node_mask[khop_info[0]], # Apply node mask
-            edge_imp = 1*edge_mask[subgraph_edge_mask],
+            node_imp = 1*node_mask[khop_info[0].cpu()], # Apply node mask
+            edge_imp = 1*edge_mask[subgraph_edge_mask.cpu()],
             node_idx = node_idx
         )
 
@@ -295,5 +295,5 @@ class SubgraphX(_BaseExplainer):
         n_mask = torch.zeros(num_nodes, dtype = torch.bool)
         n_mask[subgraph_nodes] = 1
 
-        edge_mask = n_mask[edge_index[0]] & n_mask[edge_index[1]]
+        edge_mask = n_mask[edge_index[0].cpu()] & n_mask[edge_index[1].cpu()]
         return node_mask, edge_mask
