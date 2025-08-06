@@ -22,11 +22,13 @@ python reconstruct_table.py # prints aggregated data
 
 ## Unable to reproduce Table 5
 > Plotting the GEA data for the published table / a table from the data uploaded to the GitHub / a table generated from the model weights uploaded to the GitHub / a newly trained model shows quite big differences.
+> 
 > ![Differences](formal/realworld/compare_gea_mutag.png)
 > ![Differences](formal/realworld/compare_gea_benzene.png)
 > ![Differences](formal/realworld/compare_gea_fc.png)
 
 > For GEF there are quite a bit nan values returned, but the plot still show differences, where numbers could be calculated.
+> 
 > ![Differences](formal/realworld/compare_gef_mutag.png)
 > ![Differences](formal/realworld/compare_gef_benzene.png)
 > ![Differences](formal/realworld/compare_gef_fc.png)
