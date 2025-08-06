@@ -1,0 +1,10 @@
+python3 graph_eval.py --exp_method CAM   --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method GBP   --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method GCAM  --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method GNNEX --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method GRAD  --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method IG    --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method PGEX  --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method PGMEX --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method RAND  --dataset benzene --model GIN --accuracy --faithfulness
+python3 graph_eval.py --exp_method SUBX  --dataset benzene --model GIN --accuracy --faithfulness

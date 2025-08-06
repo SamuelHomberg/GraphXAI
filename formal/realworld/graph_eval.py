@@ -11,7 +11,7 @@ from graphxai.explainers import PGExplainer
 from graphxai.utils.performance.load_exp import exp_exists_graph
 from graphxai.metrics.metrics_graph import graph_exp_acc_graph, graph_exp_faith_graph
 
-my_base_graphxai = '/home/owq978/GraphXAI/formal/realworld'
+my_base_graphxai = ''
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--exp_method', required=True, help='name of the explanation method')
