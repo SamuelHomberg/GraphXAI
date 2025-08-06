@@ -17,7 +17,9 @@ def summarize_results(dataset:str, exp_method: str, metric: str):
 def parse_out(result: str):
     # match all floating point numbers
     numbers = re.findall(r"[-+]?\d*\.\d+|\d+", result)
-    assert len(numbers) >= 2, f"unexpected result:\n{result}"
+    # assert len(numbers) >= 2, f"unexpected result:\n{result}"
+    if len(numbers) < 2:
+        return [float('nan'), float('nan')]
     # node_mean, node_std, (edge_mean, edge_std)
     return [float(x) for x in numbers]
 
@@ -106,6 +108,26 @@ def compare_dataframes(df1, df2, get_cbar=None|str):
         plt.show()
         # plt.savefig(get_cbar)
     return styled_df1
+
+if False: # cells executed with manual folder rename inbetween
+    # %%
+    df1 = get_published_table()
+    df1.to_csv('paper.csv')
+
+    df2 = reconstruct_table() # original results folder
+    df2.to_csv('gh.csv')
+
+    df = compare_dataframes(df1, df2, get_cbar=True)
+    # %% 
+    df3 = reconstruct_table() # later named results_gh_weights
+    df3.to_csv('gh_weights.csv')
+    compare_dataframes(df1, df3, get_cbar=True)
+
+    # %% 
+    df4 = reconstruct_table() # later named results_new_weights
+    df4.to_csv('new_weights.csv')
+    compare_dataframes(df1, df4, get_cbar=True)
+# %%
 
 if __name__ == "__main__":
     df = reconstruct_table()
