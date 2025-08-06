@@ -8,10 +8,9 @@ data/ShapeGraph/SG_homophilic.pickle
 *.out
 *.err
 formal/ShapeGraph/bigSG_explanations
-formal/realworld/mutag/EXPS
-formal/realworld/mutag/EXPS_old
-formal/realworld/fc/EXPS
-formal/realworld/benzene/EXPS
+formal/realworld/mutag/EXPS*
+formal/realworld/fc/EXPS*
+formal/realworld/benzene/EXPS*
 old
 *__pycache__*
 graphxai/gnn_ex_eval

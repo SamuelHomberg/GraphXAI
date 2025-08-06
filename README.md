@@ -12,12 +12,24 @@ uv pip install -r requirements.txt --no-build-isolation
 ```
 
 ## Difference between Table 5 / GitHub data
+```sh
+cd formal/realworld
+python reconstruct_table.py # prints aggregated data
+```
+
 > The uploaded GEA data is different from the published table. (The GEF data is the same). The highlighted colors show the difference; black means this data was not found on GitHub.
-> ![Table 5](formal/realworld/published_vs_github.png)
+> ([see this table](formal/realworld/published_vs_github.png))
 
-## Unable to reproduce
-> 
+## Unable to reproduce Table 5
+> Plotting the GEA data for the published table / a table from the data uploaded to the GitHub / a table generated from the model weights uploaded to the GitHub / a newly trained model shows quite big differences.
+> ![Differences](formal/realworld/compare_gea_mutag.png)
+> ![Differences](formal/realworld/compare_gea_benzene.png)
+> ![Differences](formal/realworld/compare_gea_fc.png)
 
+> For GEF there are quite a bit nan values returned, but the plot still show differences, where numbers could be calculated.
+> ![Differences](formal/realworld/compare_gef_mutag.png)
+> ![Differences](formal/realworld/compare_gef_benzene.png)
+> ![Differences](formal/realworld/compare_gef_fc.png)
 ---
 
 ![GraphXAI flowchart](https://github.com/mims-harvard/GraphXAI/blob/main/img/graphxai_flowchart_new.png)
