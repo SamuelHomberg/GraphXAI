@@ -12,6 +12,23 @@ def get_exp_method(method, model, criterion, pred_class, data, device, train_pg 
         exp_method = GNNExplainer(model)
         forward_kwargs={'x': data.x.to(device),
                         'edge_index': data.edge_index.to(device)}
+    elif method=='pert':
+        exp_method = PerturbationExplainer_(model)
+        forward_kwargs={'x': data.x.to(device),
+                        'label': data.y.to(device),
+                        'edge_index': data.edge_index.to(device)}
+
+    elif method=='sh':
+        exp_method = ShapleyExplainer_(model)
+        forward_kwargs={'x': data.x.to(device),
+                        'label': data.y.to(device),
+                        'edge_index': data.edge_index.to(device)}
+
+    elif method=='myx':
+        exp_method = MyersonExplainer_(model)
+        forward_kwargs={'x': data.x.to(device),
+                        'label': data.y.to(device),
+                        'edge_index': data.edge_index.to(device)}
 
     elif method=='grad':
         exp_method = GradExplainer(model, criterion = criterion)

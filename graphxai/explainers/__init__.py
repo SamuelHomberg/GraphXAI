@@ -10,3 +10,6 @@ from .graphlime import GraphLIME
 from .gnn_explainer import GNNExplainer
 from .pg_explainer import PGExplainer
 from .pgm_explainer import PGMExplainer
+from .myerson import MyersonExplainer_
+from .myerson import ShapleyExplainer_
+from .myerson import PerturbationExplainer_
