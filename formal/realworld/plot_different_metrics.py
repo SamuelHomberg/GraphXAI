@@ -61,3 +61,4 @@ def inspect(dataset="mutag", metric="GEA", results="results", method="RAND", nod
     return np.load(path)
 
 inspect(metric="GEF", results="results_new_weights")
+inspect(metric="GEA", method="GCAM")
