@@ -22,11 +22,13 @@ class MyersonExplainer_(_BaseExplainer):
             return_type='label',
         ):
         super().__init__(model, emb_layer_name, is_subgraphx)
+        self.return_type=return_type
         self.explain_graph = True # Myerson values can only explain graph level explanations
         self.wrap_model()
     
     def wrap_model(self):
-        self.model = WrappedModel(self.model, return_type=self.return_type)
+        self.model = WrappedModel(self.model, explain_graph=self.explain_graph,
+                                  return_type=self.return_type)
         
     def _predict(self, x: torch.Tensor, edge_index: torch.Tensor,
                  forward_kwargs: dict = {}):
@@ -58,7 +60,7 @@ class MyersonExplainer_(_BaseExplainer):
         # if regression:
         explainer = MyersonSamplingExplainer(graph, self.model, disable_tqdm=True)
         my_values = explainer.sample_all_myerson_values()
-        my_values = torch.tensor(my_values.values())
+        my_values = torch.tensor(list(my_values.values()))
         exp = Explanation(
             node_imp = my_values
         )
@@ -140,9 +142,9 @@ class WrappedModel(nn.Module):
         self.model = model
         self.explain_graph = explain_graph
         self.return_type = return_type
-    def forward(self, x, edge_index, **forward_kwargs):
+    def forward(self, x, edge_index, batch):
         with torch.no_grad():
-            out = self.model.to(self.device)(x, edge_index, **forward_kwargs)
+            out = self.model(x, edge_index, batch)
             if self.return_type == 'label':
                 out = out.argmax(dim=-1)
             elif self.return_type == 'prob':
